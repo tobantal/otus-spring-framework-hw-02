@@ -28,7 +28,7 @@ public class AnswerTesterImpl implements AnswerTester {
 			if(!rightAns.getId().equals(userAns.getId())) {
 				throw new TwitIdMatchedException();
 			}
-			if (rightAns.getText().equals(userAns.getText())) {
+			if (rightAns.getText().equalsIgnoreCase(userAns.getText())) {
 				count++;
 			}
 		}

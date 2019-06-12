@@ -17,7 +17,9 @@ import ru.otus.spring.hw01.exception.TwitIdMatchedException;
 @DisplayName("Класс AnswerTesterImpl должен ")
 public class AnswerTesterImplTest {
 
-	private AnswerTester answerTester;
+	// mock(userAnswers).get() willReturn(new Twit(1L, "a"))
+	
+	private AnswerTester answerTester; // замокать AnswerSupplier
 	private Queue<Twit> userAnswers;
 	private Queue<Twit> rightAnswers;
 
@@ -33,6 +35,17 @@ public class AnswerTesterImplTest {
 		rightAnswers.add(new Twit(1L, "a"));
 		userAnswers.add(new Twit(1L, "a"));
 		answerTester = new AnswerTesterImpl(() -> rightAnswers);
+		assertEquals("1", answerTester.apply(userAnswers));
+	}
+	
+	@DisplayName("выдавать 1 при правильном ответе без учета регистра")
+	@Test
+	public void check_ignore_case() {
+		rightAnswers.add(new Twit(1L, "a"));
+		userAnswers.add(new Twit(1L, "A"));
+		answerTester = new AnswerTesterImpl(() -> rightAnswers);
+		// mock(userAnswers).get() willReturn(new Twit(1L, "a"))
+		// 
 		assertEquals("1", answerTester.apply(userAnswers));
 	}
 

@@ -21,13 +21,12 @@ public class CsvDao implements TaskDao {
 
 	public CsvDao(LocaleMessageProvider localeMessageProvider) {
 		this.localeMessageProvider = localeMessageProvider;
+
 	}
 
 	@Override
 	public Queue<Task> get() {
-		String csvPath = getCsvPathOrThrow();
-
-		InputStream inputStream = getCsvFileInputStreamOrThrow(csvPath);
+		InputStream inputStream = getCsvFileInputStreamOrThrow(getCsvPath());
 
 		Queue<Task> queue = new LinkedList<>();
 
@@ -39,9 +38,10 @@ public class CsvDao implements TaskDao {
 		}
 		return queue;
 	}
-
-	private String getCsvPathOrThrow() {
-		return localeMessageProvider.getMessage("csvfile", null);
+	
+	private String getCsvPath() {
+		return "tasks_" + localeMessageProvider.getLocale().getLanguage() + "_" +
+				localeMessageProvider.getLocale().getCountry()+ ".csv";
 	}
 
 	private InputStream getCsvFileInputStreamOrThrow(String csvPath) {

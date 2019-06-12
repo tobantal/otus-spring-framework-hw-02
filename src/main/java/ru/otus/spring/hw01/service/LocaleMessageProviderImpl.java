@@ -24,4 +24,9 @@ public class LocaleMessageProviderImpl implements LocaleMessageProvider {
 		return messageSource.getMessage(code, args, locale);
 	}
 
+	@Override
+	public Locale getLocale() {
+		return locale;
+	}
+
 }

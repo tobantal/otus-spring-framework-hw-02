@@ -16,7 +16,6 @@ public class QuestionsSupplier implements Supplier<Queue<Twit>> {
 	private final TaskMapper taskMapper;
 
 	public QuestionsSupplier(Supplier<Queue<Task>> tasksSupplier, TaskMapper taskMapper) {
-		super();
 		this.tasksSupplier = tasksSupplier;
 		this.taskMapper = taskMapper;
 	}
