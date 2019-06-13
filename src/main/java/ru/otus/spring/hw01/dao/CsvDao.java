@@ -4,8 +4,9 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import ru.otus.spring.hw01.domain.Task;
@@ -13,8 +14,8 @@ import ru.otus.spring.hw01.exception.ColumnNumberException;
 import ru.otus.spring.hw01.exception.CsvFileNotFoundException;
 import ru.otus.spring.hw01.service.LocaleMessageProvider;
 
-@Repository
-public class CsvDao implements TaskDao {
+@Component
+public class CsvDao implements Supplier<Queue<Task>> {
 
 	private static final String DELIMITER = ";";
 	private final LocaleMessageProvider localeMessageProvider;
@@ -40,8 +41,8 @@ public class CsvDao implements TaskDao {
 	}
 	
 	private String getCsvPath() {
-		return "tasks_" + localeMessageProvider.getLocale().getLanguage() + "_" +
-				localeMessageProvider.getLocale().getCountry()+ ".csv";
+		return "tasks_" + localeMessageProvider.getLocale().getLanguage() + "_"
+				+ localeMessageProvider.getLocale().getCountry()+ ".csv";
 	}
 
 	private InputStream getCsvFileInputStreamOrThrow(String csvPath) {

@@ -32,7 +32,7 @@ public class AnswerTesterImpl implements AnswerTester {
 				count++;
 			}
 		}
-		return "" + count;
+		return Integer.toString(count);
 	}
 
 }

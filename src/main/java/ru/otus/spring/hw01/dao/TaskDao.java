@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 import ru.otus.spring.hw01.domain.Task;
 
-
+@Deprecated
 public interface TaskDao extends Supplier<Queue<Task>> {
 	
 }
