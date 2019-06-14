@@ -7,14 +7,12 @@ import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.PropertySource;
-
 import ru.otus.spring.hw01.dao.CsvDao;
 import ru.otus.spring.hw01.domain.Task;
 import ru.otus.spring.hw01.repository.AnswersSupplier;
+import ru.otus.spring.hw01.repository.QuestionsSupplier;
 
-@Import(AnswersSupplier.class)
-@PropertySource("classpath:application.properties")
+@Import({AnswersSupplier.class, QuestionsSupplier.class})
 @Configuration
 public class ConfigAnswersSupplierTest {
 

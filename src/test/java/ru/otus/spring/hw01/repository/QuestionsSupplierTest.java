@@ -1,4 +1,4 @@
-package ru.otus.spring.hw01.service;
+package ru.otus.spring.hw01.repository;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
@@ -21,23 +21,24 @@ import ru.otus.spring.hw01.dto.Twit;
 
 @ContextConfiguration(classes = ConfigAnswersSupplierTest.class)
 @ExtendWith(SpringExtension.class)
-@DisplayName("Класс AnswersSupplier должен ")
-public class AnswersSupplierTest {
+@DisplayName("КлассQuestionsSupplier должен ")
+public class QuestionsSupplierTest {
 	
 	@Autowired
-	private Supplier<Queue<Twit>> answersSupplier;
+	private Supplier<Queue<Twit>> questionsSupplier;
 	
 	@Autowired
 	private Supplier<Queue<Task>> tasksSupplier;
 	
-	@DisplayName("выводить правильные ответы")
+	@DisplayName("выводить правильные вопросы")
 	@Test
-	public void shouldGetRightAnswers() {
+	public void shouldGetRightQuestions() {
 		Queue<Task> tasks = new LinkedList<>();
 		tasks.add(new Task(1L, "question1", "ans1"));
 		given(tasksSupplier.get()).willReturn(tasks);
-		Twit ans = answersSupplier.get().poll();
+		
+		Twit ans = questionsSupplier.get().poll();
 		assertTrue(ans.getId().equals(1L));
-		assertTrue(ans.getText().equals("ans1"));
+		assertTrue(ans.getText().equals("question1"));
 	}
 }
