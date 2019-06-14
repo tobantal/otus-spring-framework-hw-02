@@ -14,12 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import ru.otus.spring.hw01.ConfigAnswersSupplierTest;
+import ru.otus.spring.hw01.ConfigAnswersAndQuestionsSuppliersTest;
 import ru.otus.spring.hw01.domain.Task;
 import ru.otus.spring.hw01.dto.Twit;
 
 
-@ContextConfiguration(classes = ConfigAnswersSupplierTest.class)
+@ContextConfiguration(classes = ConfigAnswersAndQuestionsSuppliersTest.class)
 @ExtendWith(SpringExtension.class)
 @DisplayName("Класс AnswersSupplier должен ")
 public class AnswersSupplierTest {

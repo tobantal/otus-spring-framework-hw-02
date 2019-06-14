@@ -14,7 +14,7 @@ import ru.otus.spring.hw01.repository.QuestionsSupplier;
 
 @Import({AnswersSupplier.class, QuestionsSupplier.class})
 @Configuration
-public class ConfigAnswersSupplierTest {
+public class ConfigAnswersAndQuestionsSuppliersTest {
 
     @Bean
     public Supplier<Queue<Task>> tasksSupplier() {
