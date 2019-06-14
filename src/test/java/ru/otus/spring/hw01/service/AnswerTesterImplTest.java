@@ -32,7 +32,6 @@ public class AnswerTesterImplTest {
 	private Supplier<Queue<Twit>> answerSupplier;
 
 	private Queue<Twit> userAnswers;
-
 	private Queue<Twit> rightAnswers;
 
 	@BeforeEach
